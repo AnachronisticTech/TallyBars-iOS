@@ -3,23 +3,34 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9106041B2528F1C80012E91E /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 9106041A2528F1C80012E91E /* BarChart */; };
+		9106041E2528F3540012E91E /* TallyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9106041D2528F3540012E91E /* TallyItem.swift */; };
 		9140A5762527E0D700943D0C /* TallyBarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140A5752527E0D700943D0C /* TallyBarsApp.swift */; };
-		9140A5782527E0D700943D0C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140A5772527E0D700943D0C /* ContentView.swift */; };
+		9140A5782527E0D700943D0C /* AllListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140A5772527E0D700943D0C /* AllListsView.swift */; };
 		9140A57A2527E0DB00943D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9140A5792527E0DB00943D0C /* Assets.xcassets */; };
 		9140A57D2527E0DB00943D0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9140A57C2527E0DB00943D0C /* Preview Assets.xcassets */; };
+		91A807D62527F54E0009E5AC /* FLite in Frameworks */ = {isa = PBXBuildFile; productRef = 91A807D52527F54E0009E5AC /* FLite */; };
+		91A807DA2527F5DD0009E5AC /* Later in Frameworks */ = {isa = PBXBuildFile; productRef = 91A807D92527F5DD0009E5AC /* Later */; };
+		91A807DD2527F65E0009E5AC /* TallyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807DC2527F65E0009E5AC /* TallyList.swift */; };
+		91A807E22527FA830009E5AC /* SingleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807E12527FA830009E5AC /* SingleListView.swift */; };
+		91A807E52528A3A20009E5AC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807E42528A3A20009E5AC /* TextAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9106041D2528F3540012E91E /* TallyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyItem.swift; sourceTree = "<group>"; };
 		9140A5722527E0D700943D0C /* TallyBars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TallyBars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9140A5752527E0D700943D0C /* TallyBarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyBarsApp.swift; sourceTree = "<group>"; };
-		9140A5772527E0D700943D0C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9140A5772527E0D700943D0C /* AllListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsView.swift; sourceTree = "<group>"; };
 		9140A5792527E0DB00943D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9140A57C2527E0DB00943D0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9140A57E2527E0DB00943D0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91A807DC2527F65E0009E5AC /* TallyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyList.swift; sourceTree = "<group>"; };
+		91A807E12527FA830009E5AC /* SingleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListView.swift; sourceTree = "<group>"; };
+		91A807E42528A3A20009E5AC /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +38,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91A807D62527F54E0009E5AC /* FLite in Frameworks */,
+				9106041B2528F1C80012E91E /* BarChart in Frameworks */,
+				91A807DA2527F5DD0009E5AC /* Later in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +67,11 @@
 			isa = PBXGroup;
 			children = (
 				9140A5752527E0D700943D0C /* TallyBarsApp.swift */,
-				9140A5772527E0D700943D0C /* ContentView.swift */,
+				9140A5772527E0D700943D0C /* AllListsView.swift */,
+				91A807E42528A3A20009E5AC /* TextAlert.swift */,
+				91A807E12527FA830009E5AC /* SingleListView.swift */,
+				91A807DC2527F65E0009E5AC /* TallyList.swift */,
+				9106041D2528F3540012E91E /* TallyItem.swift */,
 				9140A5792527E0DB00943D0C /* Assets.xcassets */,
 				9140A57E2527E0DB00943D0C /* Info.plist */,
 				9140A57B2527E0DB00943D0C /* Preview Content */,
@@ -85,6 +103,11 @@
 			dependencies = (
 			);
 			name = TallyBars;
+			packageProductDependencies = (
+				91A807D52527F54E0009E5AC /* FLite */,
+				91A807D92527F5DD0009E5AC /* Later */,
+				9106041A2528F1C80012E91E /* BarChart */,
+			);
 			productName = TallyBars;
 			productReference = 9140A5722527E0D700943D0C /* TallyBars.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +135,11 @@
 				Base,
 			);
 			mainGroup = 9140A5692527E0D600943D0C;
+			packageReferences = (
+				91A807D42527F54E0009E5AC /* XCRemoteSwiftPackageReference "FLite" */,
+				91A807D82527F5DD0009E5AC /* XCRemoteSwiftPackageReference "Later" */,
+				910604192528F1C80012E91E /* XCRemoteSwiftPackageReference "BarChart" */,
+			);
 			productRefGroup = 9140A5732527E0D700943D0C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,7 +166,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9140A5782527E0D700943D0C /* ContentView.swift in Sources */,
+				91A807E22527FA830009E5AC /* SingleListView.swift in Sources */,
+				91A807E52528A3A20009E5AC /* TextAlert.swift in Sources */,
+				91A807DD2527F65E0009E5AC /* TallyList.swift in Sources */,
+				9106041E2528F3540012E91E /* TallyItem.swift in Sources */,
+				9140A5782527E0D700943D0C /* AllListsView.swift in Sources */,
 				9140A5762527E0D700943D0C /* TallyBarsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +360,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		910604192528F1C80012E91E /* XCRemoteSwiftPackageReference "BarChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dawigr/BarChart";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+		91A807D42527F54E0009E5AC /* XCRemoteSwiftPackageReference "FLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/0xLeif/FLite";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		91A807D82527F5DD0009E5AC /* XCRemoteSwiftPackageReference "Later" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/0xLeif/Later";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9106041A2528F1C80012E91E /* BarChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 910604192528F1C80012E91E /* XCRemoteSwiftPackageReference "BarChart" */;
+			productName = BarChart;
+		};
+		91A807D52527F54E0009E5AC /* FLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A807D42527F54E0009E5AC /* XCRemoteSwiftPackageReference "FLite" */;
+			productName = FLite;
+		};
+		91A807D92527F5DD0009E5AC /* Later */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91A807D82527F5DD0009E5AC /* XCRemoteSwiftPackageReference "Later" */;
+			productName = Later;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9140A56A2527E0D600943D0C /* Project object */;
 }
