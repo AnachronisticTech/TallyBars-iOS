@@ -17,8 +17,25 @@
 		91A807DD2527F65E0009E5AC /* TallyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807DC2527F65E0009E5AC /* TallyList.swift */; };
 		91A807E22527FA830009E5AC /* SingleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807E12527FA830009E5AC /* SingleListView.swift */; };
 		91A807E52528A3A20009E5AC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807E42528A3A20009E5AC /* TextAlert.swift */; };
+		91D1CCD4252B39B800DDE8C6 /* ListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1CCD3252B39B800DDE8C6 /* ListProvider.swift */; };
+		91D1CCD9252B5F5E00DDE8C6 /* BarChartKit-dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 91D1CCD8252B5F5E00DDE8C6 /* BarChartKit-dynamic */; };
+		91D1CCDA252B5F5E00DDE8C6 /* BarChartKit-dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 91D1CCD8252B5F5E00DDE8C6 /* BarChartKit-dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		91EC6002252A9D9F00BFB255 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 91EC6001252A9D9F00BFB255 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		91D1CCDB252B5F5E00DDE8C6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				91D1CCDA252B5F5E00DDE8C6 /* BarChartKit-dynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9106041D2528F3540012E91E /* TallyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyItem.swift; sourceTree = "<group>"; };
@@ -31,6 +48,7 @@
 		91A807DC2527F65E0009E5AC /* TallyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyList.swift; sourceTree = "<group>"; };
 		91A807E12527FA830009E5AC /* SingleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListView.swift; sourceTree = "<group>"; };
 		91A807E42528A3A20009E5AC /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
+		91D1CCD3252B39B800DDE8C6 /* ListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91D1CCD9252B5F5E00DDE8C6 /* BarChartKit-dynamic in Frameworks */,
 				91A807D62527F54E0009E5AC /* FLite in Frameworks */,
 				91EC6002252A9D9F00BFB255 /* SwiftUICharts in Frameworks */,
 				91A807DA2527F5DD0009E5AC /* Later in Frameworks */,
@@ -72,6 +91,7 @@
 				91A807E12527FA830009E5AC /* SingleListView.swift */,
 				91A807DC2527F65E0009E5AC /* TallyList.swift */,
 				9106041D2528F3540012E91E /* TallyItem.swift */,
+				91D1CCD3252B39B800DDE8C6 /* ListProvider.swift */,
 				9140A5792527E0DB00943D0C /* Assets.xcassets */,
 				9140A57E2527E0DB00943D0C /* Info.plist */,
 				9140A57B2527E0DB00943D0C /* Preview Content */,
@@ -97,6 +117,7 @@
 				9140A56E2527E0D700943D0C /* Sources */,
 				9140A56F2527E0D700943D0C /* Frameworks */,
 				9140A5702527E0D700943D0C /* Resources */,
+				91D1CCDB252B5F5E00DDE8C6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -107,6 +128,7 @@
 				91A807D52527F54E0009E5AC /* FLite */,
 				91A807D92527F5DD0009E5AC /* Later */,
 				91EC6001252A9D9F00BFB255 /* SwiftUICharts */,
+				91D1CCD8252B5F5E00DDE8C6 /* BarChartKit-dynamic */,
 			);
 			productName = TallyBars;
 			productReference = 9140A5722527E0D700943D0C /* TallyBars.app */;
@@ -139,6 +161,7 @@
 				91A807D42527F54E0009E5AC /* XCRemoteSwiftPackageReference "FLite" */,
 				91A807D82527F5DD0009E5AC /* XCRemoteSwiftPackageReference "Later" */,
 				91EC6000252A9D9F00BFB255 /* XCRemoteSwiftPackageReference "ChartView" */,
+				91D1CCD7252B5F5D00DDE8C6 /* XCRemoteSwiftPackageReference "BarChart" */,
 			);
 			productRefGroup = 9140A5732527E0D700943D0C /* Products */;
 			projectDirPath = "";
@@ -168,6 +191,7 @@
 			files = (
 				91A807E22527FA830009E5AC /* SingleListView.swift in Sources */,
 				91A807E52528A3A20009E5AC /* TextAlert.swift in Sources */,
+				91D1CCD4252B39B800DDE8C6 /* ListProvider.swift in Sources */,
 				91A807DD2527F65E0009E5AC /* TallyList.swift in Sources */,
 				9106041E2528F3540012E91E /* TallyItem.swift in Sources */,
 				9140A5782527E0D700943D0C /* AllListsView.swift in Sources */,
@@ -378,6 +402,14 @@
 				minimumVersion = 0.4.0;
 			};
 		};
+		91D1CCD7252B5F5D00DDE8C6 /* XCRemoteSwiftPackageReference "BarChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marekpridal/BarChart";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 		91EC6000252A9D9F00BFB255 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -398,6 +430,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 91A807D82527F5DD0009E5AC /* XCRemoteSwiftPackageReference "Later" */;
 			productName = Later;
+		};
+		91D1CCD8252B5F5E00DDE8C6 /* BarChartKit-dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91D1CCD7252B5F5D00DDE8C6 /* XCRemoteSwiftPackageReference "BarChart" */;
+			productName = "BarChartKit-dynamic";
 		};
 		91EC6001252A9D9F00BFB255 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;

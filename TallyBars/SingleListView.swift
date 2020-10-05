@@ -10,20 +10,23 @@ import SwiftUICharts
 
 struct SingleListView: View {
     @EnvironmentObject var store: FLiteStore
-    @State private var items = [TallyItem]()
     @State private var showsAlert = false
     @State var list: TallyList
+    @ObservedObject var itemProvider = ListProvider()
 
     var body: some View {
         VStack {
             BarChartView(
-                data: ChartData(values: items.map { ($0.name, $0.count) }),
+                data: itemProvider.data,
                 title: list.name,
-                form: ChartForm.extraLarge
+                form: ChartForm.extraLarge,
+                dropShadow: false,
+                cornerImage: Image(systemName: "number"),
+                valueSpecifier: "%.0f"
             )
             .padding(10)
             List {
-                ForEach(items, id: \.id) { item in
+                ForEach(itemProvider.items, id: \.id) { item in
                     HStack {
                         Text(item.name)
                         Spacer()
@@ -35,11 +38,7 @@ struct SingleListView: View {
                         store.persist
                             .update(model: item)
                             .whenSuccess {
-                                list.$items
-                                    .query(on: store.persist.query(model: TallyItem.self).database)
-                                    .with(\.$list)
-                                    .all()
-                                    .whenSuccess { items = $0 }
+                                itemProvider.updateItems(from: list, in: store)
                             }
                     }
                     .onLongPressGesture {
@@ -47,19 +46,13 @@ struct SingleListView: View {
                         store.persist
                             .update(model: item)
                             .whenSuccess {
-                                list.$items
-                                    .query(on: store.persist.query(model: TallyItem.self).database)
-                                    .with(\.$list)
-                                    .all()
-                                    .whenSuccess { items = $0 }
+                                itemProvider.updateItems(from: list, in: store)
                             }
                     }
                 }
                 .onDelete { indexSet in
                     indexSet.forEach { index in
-                        store.persist
-                            .delete(model: items[index])
-                            .whenSuccess { items.remove(at: index) }
+                        itemProvider.deleteItem(at: index, in: store)
                     }
                 }
             }
@@ -70,11 +63,7 @@ struct SingleListView: View {
                 .add(model: TallyItem(listId: list.id!, name: title))
                 .flatMap { _ in store.persist.all(model: TallyItem.self) }
                 .whenSuccess { _ in
-                    list.$items
-                        .query(on: store.persist.query(model: TallyItem.self).database)
-                        .with(\.$list)
-                        .all()
-                        .whenSuccess { items = $0 }
+                    itemProvider.updateItems(from: list, in: store)
                 }
         })
         .navigationBarTitle(list.name)
@@ -92,11 +81,7 @@ struct SingleListView: View {
             }
         }
         .onAppear {
-            list.$items
-                .query(on: store.persist.query(model: TallyItem.self).database)
-                .with(\.$list)
-                .all()
-                .whenSuccess { items = $0 }
+            itemProvider.updateItems(from: list, in: store)
         }
     }
 }
