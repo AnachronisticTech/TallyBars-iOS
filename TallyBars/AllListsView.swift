@@ -11,7 +11,7 @@ import Later
 
 struct AllListsView: View {
     @EnvironmentObject var store: FLiteStore
-    @State private var items: [TallyList] = []
+    @State private var items = [TallyList]()
     @State private var showsAlert = false
 
     var body: some View {
