@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9106041E2528F3540012E91E /* TallyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9106041D2528F3540012E91E /* TallyItem.swift */; };
+		912AAF67252FE83600B15CBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912AAF66252FE83600B15CBD /* Assets.xcassets */; };
 		9140A5762527E0D700943D0C /* TallyBarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140A5752527E0D700943D0C /* TallyBarsApp.swift */; };
 		9140A5782527E0D700943D0C /* AllListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140A5772527E0D700943D0C /* AllListsView.swift */; };
-		9140A57A2527E0DB00943D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9140A5792527E0DB00943D0C /* Assets.xcassets */; };
 		9140A57D2527E0DB00943D0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9140A57C2527E0DB00943D0C /* Preview Assets.xcassets */; };
 		9145AD30252FD8480021DBF4 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 9145AD2F252FD8480021DBF4 /* SwiftUICharts */; };
 		91A807D62527F54E0009E5AC /* FLite in Frameworks */ = {isa = PBXBuildFile; productRef = 91A807D52527F54E0009E5AC /* FLite */; };
@@ -36,10 +36,10 @@
 
 /* Begin PBXFileReference section */
 		9106041D2528F3540012E91E /* TallyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyItem.swift; sourceTree = "<group>"; };
+		912AAF66252FE83600B15CBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9140A5722527E0D700943D0C /* TallyBars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TallyBars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9140A5752527E0D700943D0C /* TallyBarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyBarsApp.swift; sourceTree = "<group>"; };
 		9140A5772527E0D700943D0C /* AllListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsView.swift; sourceTree = "<group>"; };
-		9140A5792527E0DB00943D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9140A57C2527E0DB00943D0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9140A57E2527E0DB00943D0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91A807DC2527F65E0009E5AC /* TallyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyList.swift; sourceTree = "<group>"; };
@@ -88,8 +88,8 @@
 				91A807DC2527F65E0009E5AC /* TallyList.swift */,
 				9106041D2528F3540012E91E /* TallyItem.swift */,
 				91D1CCD3252B39B800DDE8C6 /* ListProvider.swift */,
-				9140A5792527E0DB00943D0C /* Assets.xcassets */,
 				9140A57E2527E0DB00943D0C /* Info.plist */,
+				912AAF66252FE83600B15CBD /* Assets.xcassets */,
 				9140A57B2527E0DB00943D0C /* Preview Content */,
 			);
 			path = TallyBars;
@@ -171,8 +171,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				912AAF67252FE83600B15CBD /* Assets.xcassets in Resources */,
 				9140A57D2527E0DB00943D0C /* Preview Assets.xcassets in Resources */,
-				9140A57A2527E0DB00943D0C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +330,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "anachronistic-tech.TallyBars";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -352,7 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "anachronistic-tech.TallyBars";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
