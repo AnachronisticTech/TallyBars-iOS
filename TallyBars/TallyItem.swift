@@ -19,12 +19,16 @@ final class TallyItem: Model {
     @Field(key: "name")
     var name: String
 
+    @Field(key: "count")
+    var count: Int
+
     init() {}
 
     init(id: Int? = nil, listId: Int, name: String) {
         self.id = id
         self.$list.id = listId
         self.name = name
+        self.count = 0
     }
 }
 
@@ -35,6 +39,7 @@ extension TallyItem: Migration {
             .field("list", .int, .required)
             .foreignKey("list", references: TallyList.schema, .id, onDelete: .cascade, onUpdate: .noAction)
             .field("name", .string, .required)
+            .field("count", .int, .required)
             .create()
     }
 

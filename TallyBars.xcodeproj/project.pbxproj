@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9106041B2528F1C80012E91E /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 9106041A2528F1C80012E91E /* BarChart */; };
 		9106041E2528F3540012E91E /* TallyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9106041D2528F3540012E91E /* TallyItem.swift */; };
 		9140A5762527E0D700943D0C /* TallyBarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140A5752527E0D700943D0C /* TallyBarsApp.swift */; };
 		9140A5782527E0D700943D0C /* AllListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140A5772527E0D700943D0C /* AllListsView.swift */; };
 		9140A57A2527E0DB00943D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9140A5792527E0DB00943D0C /* Assets.xcassets */; };
 		9140A57D2527E0DB00943D0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9140A57C2527E0DB00943D0C /* Preview Assets.xcassets */; };
+		9145AD30252FD8480021DBF4 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 9145AD2F252FD8480021DBF4 /* SwiftUICharts */; };
 		91A807D62527F54E0009E5AC /* FLite in Frameworks */ = {isa = PBXBuildFile; productRef = 91A807D52527F54E0009E5AC /* FLite */; };
 		91A807DA2527F5DD0009E5AC /* Later in Frameworks */ = {isa = PBXBuildFile; productRef = 91A807D92527F5DD0009E5AC /* Later */; };
 		91A807DD2527F65E0009E5AC /* TallyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807DC2527F65E0009E5AC /* TallyList.swift */; };
 		91A807E22527FA830009E5AC /* SingleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807E12527FA830009E5AC /* SingleListView.swift */; };
 		91A807E52528A3A20009E5AC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807E42528A3A20009E5AC /* TextAlert.swift */; };
+		91D1CCD4252B39B800DDE8C6 /* ListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1CCD3252B39B800DDE8C6 /* ListProvider.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		91D1CCDB252B5F5E00DDE8C6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9106041D2528F3540012E91E /* TallyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyItem.swift; sourceTree = "<group>"; };
@@ -31,6 +45,7 @@
 		91A807DC2527F65E0009E5AC /* TallyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyList.swift; sourceTree = "<group>"; };
 		91A807E12527FA830009E5AC /* SingleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListView.swift; sourceTree = "<group>"; };
 		91A807E42528A3A20009E5AC /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
+		91D1CCD3252B39B800DDE8C6 /* ListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,8 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9145AD30252FD8480021DBF4 /* SwiftUICharts in Frameworks */,
 				91A807D62527F54E0009E5AC /* FLite in Frameworks */,
-				9106041B2528F1C80012E91E /* BarChart in Frameworks */,
 				91A807DA2527F5DD0009E5AC /* Later in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +87,7 @@
 				91A807E12527FA830009E5AC /* SingleListView.swift */,
 				91A807DC2527F65E0009E5AC /* TallyList.swift */,
 				9106041D2528F3540012E91E /* TallyItem.swift */,
+				91D1CCD3252B39B800DDE8C6 /* ListProvider.swift */,
 				9140A5792527E0DB00943D0C /* Assets.xcassets */,
 				9140A57E2527E0DB00943D0C /* Info.plist */,
 				9140A57B2527E0DB00943D0C /* Preview Content */,
@@ -97,6 +113,7 @@
 				9140A56E2527E0D700943D0C /* Sources */,
 				9140A56F2527E0D700943D0C /* Frameworks */,
 				9140A5702527E0D700943D0C /* Resources */,
+				91D1CCDB252B5F5E00DDE8C6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -106,7 +123,7 @@
 			packageProductDependencies = (
 				91A807D52527F54E0009E5AC /* FLite */,
 				91A807D92527F5DD0009E5AC /* Later */,
-				9106041A2528F1C80012E91E /* BarChart */,
+				9145AD2F252FD8480021DBF4 /* SwiftUICharts */,
 			);
 			productName = TallyBars;
 			productReference = 9140A5722527E0D700943D0C /* TallyBars.app */;
@@ -138,7 +155,7 @@
 			packageReferences = (
 				91A807D42527F54E0009E5AC /* XCRemoteSwiftPackageReference "FLite" */,
 				91A807D82527F5DD0009E5AC /* XCRemoteSwiftPackageReference "Later" */,
-				910604192528F1C80012E91E /* XCRemoteSwiftPackageReference "BarChart" */,
+				9145AD2E252FD8480021DBF4 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 9140A5732527E0D700943D0C /* Products */;
 			projectDirPath = "";
@@ -168,6 +185,7 @@
 			files = (
 				91A807E22527FA830009E5AC /* SingleListView.swift in Sources */,
 				91A807E52528A3A20009E5AC /* TextAlert.swift in Sources */,
+				91D1CCD4252B39B800DDE8C6 /* ListProvider.swift in Sources */,
 				91A807DD2527F65E0009E5AC /* TallyList.swift in Sources */,
 				9106041E2528F3540012E91E /* TallyItem.swift in Sources */,
 				9140A5782527E0D700943D0C /* AllListsView.swift in Sources */,
@@ -362,12 +380,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		910604192528F1C80012E91E /* XCRemoteSwiftPackageReference "BarChart" */ = {
+		9145AD2E252FD8480021DBF4 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dawigr/BarChart";
+			repositoryURL = "https://github.com/AnachronisticTech/ChartView";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.0;
+				kind = exactVersion;
+				version = 1.5.5;
 			};
 		};
 		91A807D42527F54E0009E5AC /* XCRemoteSwiftPackageReference "FLite" */ = {
@@ -389,10 +407,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9106041A2528F1C80012E91E /* BarChart */ = {
+		9145AD2F252FD8480021DBF4 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 910604192528F1C80012E91E /* XCRemoteSwiftPackageReference "BarChart" */;
-			productName = BarChart;
+			package = 9145AD2E252FD8480021DBF4 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
 		};
 		91A807D52527F54E0009E5AC /* FLite */ = {
 			isa = XCSwiftPackageProductDependency;
