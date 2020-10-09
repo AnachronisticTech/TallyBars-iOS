@@ -16,7 +16,7 @@ struct SingleListView: View {
 
     var body: some View {
         VStack {
-            BarChartView(
+            UBarChartView(
                 data: itemProvider.data,
                 title: list.name,
                 form: ChartForm.extraLarge,
