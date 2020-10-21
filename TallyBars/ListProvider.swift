@@ -13,6 +13,7 @@ import SwiftUICharts
 class ListProvider: ObservableObject {
     @Published var items = [TallyItem]()
     @Published var data = ChartData(points: [Float]())
+    @Published var normalisedData = ChartData(points: [Float]())
 
     func updateItems(from list: TallyList, in store: FLiteStore) {
         list.$items
@@ -22,8 +23,12 @@ class ListProvider: ObservableObject {
             .whenSuccess { items in
                 DispatchQueue.main.async {
                     self.items = items
+                    let min = items.map({ $0.count }).min() ?? 0
                     self.data = ChartData(values: items.map { item in
                         (item.name, item.count)
+                    })
+                    self.normalisedData = ChartData(values: items.map { item in
+                        (item.name, item.count - min)
                     })
                 }
             }

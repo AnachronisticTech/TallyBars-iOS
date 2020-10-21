@@ -12,18 +12,38 @@ struct SingleListView: View {
     @EnvironmentObject var store: FLiteStore
     @State private var showsAlert = false
     @State var list: TallyList
+    @State var selection = 0
     @ObservedObject var itemProvider = ListProvider()
 
     var body: some View {
         VStack {
-            UBarChartView(
-                data: itemProvider.data,
-                title: list.name,
-                form: ChartForm.extraLarge,
-                dropShadow: false,
-                cornerImage: Image(systemName: "number"),
-                valueSpecifier: "%.0f"
-            )
+            Picker(selection: $selection, label: Text("Mode")) {
+                Text("Full").tag(0)
+                Text("Normalised").tag(1)
+                Text("Pie").tag(2)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding([.leading, .trailing, .top], 10)
+            Group {
+                if selection != 2 {
+                    UBarChartView(
+                        data: selection == 0 ? itemProvider.data : itemProvider.normalisedData,
+                        title: list.name,
+                        form: ChartForm.extraLarge,
+                        dropShadow: false,
+                        cornerImage: Image(systemName: "number"),
+                        valueSpecifier: "%.0f"
+                    )
+                } else {
+                    PieChartView(
+                        data: itemProvider.data.onlyPoints(),
+                        title: list.name,
+                        form: ChartForm.extraLarge,
+                        dropShadow: false,
+                        valueSpecifier: "%.0f"
+                    )
+                }
+            }
             .padding(10)
             List {
                 ForEach(itemProvider.items, id: \.id) { item in

@@ -33,6 +33,7 @@ struct AllListsView: View {
                 }
             }
         }
+        .listStyle(PlainListStyle())
         .alert(isPresented: $showsAlert, TextAlert(title: "Title") { title in
             guard let title = title, title != "" else { return }
             store.persist
