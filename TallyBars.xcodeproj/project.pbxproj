@@ -3,22 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9106041E2528F3540012E91E /* TallyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9106041D2528F3540012E91E /* TallyItem.swift */; };
 		9140A5762527E0D700943D0C /* TallyBarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140A5752527E0D700943D0C /* TallyBarsApp.swift */; };
 		9140A5782527E0D700943D0C /* AllListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140A5772527E0D700943D0C /* AllListsView.swift */; };
 		9140A57D2527E0DB00943D0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9140A57C2527E0DB00943D0C /* Preview Assets.xcassets */; };
 		9145AD30252FD8480021DBF4 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 9145AD2F252FD8480021DBF4 /* SwiftUICharts */; };
 		91515EDF253086BE006FB2DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91515EDE253086BE006FB2DE /* Assets.xcassets */; };
-		91A807D62527F54E0009E5AC /* FLite in Frameworks */ = {isa = PBXBuildFile; productRef = 91A807D52527F54E0009E5AC /* FLite */; };
-		91A807DA2527F5DD0009E5AC /* Later in Frameworks */ = {isa = PBXBuildFile; productRef = 91A807D92527F5DD0009E5AC /* Later */; };
-		91A807DD2527F65E0009E5AC /* TallyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807DC2527F65E0009E5AC /* TallyList.swift */; };
 		91A807E22527FA830009E5AC /* SingleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807E12527FA830009E5AC /* SingleListView.swift */; };
 		91A807E52528A3A20009E5AC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807E42528A3A20009E5AC /* TextAlert.swift */; };
-		91D1CCD4252B39B800DDE8C6 /* ListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1CCD3252B39B800DDE8C6 /* ListProvider.swift */; };
+		91C0708A2B499BD600752937 /* TallyBars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91C070882B499BD600752937 /* TallyBars.xcdatamodeld */; };
+		91C0708C2B499BE700752937 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0708B2B499BE700752937 /* PersistenceController.swift */; };
+		91C070942B49A8A100752937 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C070932B49A8A100752937 /* ItemModel.swift */; };
+		91C070962B49A8A300752937 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C070952B49A8A300752937 /* ListModel.swift */; };
+		91C070992B49FB2C00752937 /* SingleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C070982B49FB2C00752937 /* SingleItemView.swift */; };
+		91C0709C2B4A09A500752937 /* FLite in Frameworks */ = {isa = PBXBuildFile; productRef = 91C0709B2B4A09A500752937 /* FLite */; };
+		91C0709E2B4A0A0700752937 /* TallyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0709D2B4A0A0700752937 /* TallyItem.swift */; };
+		91C070A02B4A0A1100752937 /* TallyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0709F2B4A0A1100752937 /* TallyList.swift */; };
+		91C070A32B4A178900752937 /* FLiteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C070A22B4A178900752937 /* FLiteStore.swift */; };
+		91C070A52B4A17E100752937 /* FLiteMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C070A42B4A17E100752937 /* FLiteMigrator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,17 +40,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9106041D2528F3540012E91E /* TallyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyItem.swift; sourceTree = "<group>"; };
 		9140A5722527E0D700943D0C /* TallyBars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TallyBars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9140A5752527E0D700943D0C /* TallyBarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyBarsApp.swift; sourceTree = "<group>"; };
 		9140A5772527E0D700943D0C /* AllListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsView.swift; sourceTree = "<group>"; };
 		9140A57C2527E0DB00943D0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9140A57E2527E0DB00943D0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91515EDE253086BE006FB2DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		91A807DC2527F65E0009E5AC /* TallyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyList.swift; sourceTree = "<group>"; };
 		91A807E12527FA830009E5AC /* SingleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListView.swift; sourceTree = "<group>"; };
 		91A807E42528A3A20009E5AC /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
-		91D1CCD3252B39B800DDE8C6 /* ListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProvider.swift; sourceTree = "<group>"; };
+		91C070892B499BD600752937 /* TallyBars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TallyBars.xcdatamodel; sourceTree = "<group>"; };
+		91C0708B2B499BE700752937 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		91C070932B49A8A100752937 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		91C070952B49A8A300752937 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		91C070982B49FB2C00752937 /* SingleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleItemView.swift; sourceTree = "<group>"; };
+		91C0709D2B4A0A0700752937 /* TallyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TallyItem.swift; sourceTree = "<group>"; };
+		91C0709F2B4A0A1100752937 /* TallyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TallyList.swift; sourceTree = "<group>"; };
+		91C070A22B4A178900752937 /* FLiteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLiteStore.swift; sourceTree = "<group>"; };
+		91C070A42B4A17E100752937 /* FLiteMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLiteMigrator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9145AD30252FD8480021DBF4 /* SwiftUICharts in Frameworks */,
-				91A807D62527F54E0009E5AC /* FLite in Frameworks */,
-				91A807DA2527F5DD0009E5AC /* Later in Frameworks */,
+				91C0709C2B4A09A500752937 /* FLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,9 +95,9 @@
 				9140A5772527E0D700943D0C /* AllListsView.swift */,
 				91A807E42528A3A20009E5AC /* TextAlert.swift */,
 				91A807E12527FA830009E5AC /* SingleListView.swift */,
-				91A807DC2527F65E0009E5AC /* TallyList.swift */,
-				9106041D2528F3540012E91E /* TallyItem.swift */,
-				91D1CCD3252B39B800DDE8C6 /* ListProvider.swift */,
+				91C070982B49FB2C00752937 /* SingleItemView.swift */,
+				91C070972B49A8B400752937 /* Models */,
+				91C070A12B4A176C00752937 /* FLite */,
 				9140A57E2527E0DB00943D0C /* Info.plist */,
 				91515EDE253086BE006FB2DE /* Assets.xcassets */,
 				9140A57B2527E0DB00943D0C /* Preview Content */,
@@ -101,6 +111,28 @@
 				9140A57C2527E0DB00943D0C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		91C070972B49A8B400752937 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				91C0708B2B499BE700752937 /* PersistenceController.swift */,
+				91C070952B49A8A300752937 /* ListModel.swift */,
+				91C070932B49A8A100752937 /* ItemModel.swift */,
+				91C070882B499BD600752937 /* TallyBars.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		91C070A12B4A176C00752937 /* FLite */ = {
+			isa = PBXGroup;
+			children = (
+				91C070A22B4A178900752937 /* FLiteStore.swift */,
+				91C070A42B4A17E100752937 /* FLiteMigrator.swift */,
+				91C0709F2B4A0A1100752937 /* TallyList.swift */,
+				91C0709D2B4A0A0700752937 /* TallyItem.swift */,
+			);
+			path = FLite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,9 +153,8 @@
 			);
 			name = TallyBars;
 			packageProductDependencies = (
-				91A807D52527F54E0009E5AC /* FLite */,
-				91A807D92527F5DD0009E5AC /* Later */,
 				9145AD2F252FD8480021DBF4 /* SwiftUICharts */,
+				91C0709B2B4A09A500752937 /* FLite */,
 			);
 			productName = TallyBars;
 			productReference = 9140A5722527E0D700943D0C /* TallyBars.app */;
@@ -153,9 +184,8 @@
 			);
 			mainGroup = 9140A5692527E0D600943D0C;
 			packageReferences = (
-				91A807D42527F54E0009E5AC /* XCRemoteSwiftPackageReference "FLite" */,
-				91A807D82527F5DD0009E5AC /* XCRemoteSwiftPackageReference "Later" */,
 				9145AD2E252FD8480021DBF4 /* XCRemoteSwiftPackageReference "ChartView" */,
+				91C0709A2B4A09A500752937 /* XCRemoteSwiftPackageReference "FLite" */,
 			);
 			productRefGroup = 9140A5732527E0D700943D0C /* Products */;
 			projectDirPath = "";
@@ -183,13 +213,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91C070942B49A8A100752937 /* ItemModel.swift in Sources */,
+				91C0708C2B499BE700752937 /* PersistenceController.swift in Sources */,
 				91A807E22527FA830009E5AC /* SingleListView.swift in Sources */,
+				91C070992B49FB2C00752937 /* SingleItemView.swift in Sources */,
 				91A807E52528A3A20009E5AC /* TextAlert.swift in Sources */,
-				91D1CCD4252B39B800DDE8C6 /* ListProvider.swift in Sources */,
-				91A807DD2527F65E0009E5AC /* TallyList.swift in Sources */,
-				9106041E2528F3540012E91E /* TallyItem.swift in Sources */,
+				91C0709E2B4A0A0700752937 /* TallyItem.swift in Sources */,
+				91C0708A2B499BD600752937 /* TallyBars.xcdatamodeld in Sources */,
 				9140A5782527E0D700943D0C /* AllListsView.swift in Sources */,
+				91C070A32B4A178900752937 /* FLiteStore.swift in Sources */,
+				91C070962B49A8A300752937 /* ListModel.swift in Sources */,
 				9140A5762527E0D700943D0C /* TallyBarsApp.swift in Sources */,
+				91C070A52B4A17E100752937 /* FLiteMigrator.swift in Sources */,
+				91C070A02B4A0A1100752937 /* TallyList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,20 +424,12 @@
 				version = 1.5.5;
 			};
 		};
-		91A807D42527F54E0009E5AC /* XCRemoteSwiftPackageReference "FLite" */ = {
+		91C0709A2B4A09A500752937 /* XCRemoteSwiftPackageReference "FLite" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/0xLeif/FLite";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		91A807D82527F5DD0009E5AC /* XCRemoteSwiftPackageReference "Later" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/0xLeif/Later";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.4.0;
+				minimumVersion = 1.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -412,17 +440,25 @@
 			package = 9145AD2E252FD8480021DBF4 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
 		};
-		91A807D52527F54E0009E5AC /* FLite */ = {
+		91C0709B2B4A09A500752937 /* FLite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91A807D42527F54E0009E5AC /* XCRemoteSwiftPackageReference "FLite" */;
+			package = 91C0709A2B4A09A500752937 /* XCRemoteSwiftPackageReference "FLite" */;
 			productName = FLite;
 		};
-		91A807D92527F5DD0009E5AC /* Later */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 91A807D82527F5DD0009E5AC /* XCRemoteSwiftPackageReference "Later" */;
-			productName = Later;
-		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		91C070882B499BD600752937 /* TallyBars.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				91C070892B499BD600752937 /* TallyBars.xcdatamodel */,
+			);
+			currentVersion = 91C070892B499BD600752937 /* TallyBars.xcdatamodel */;
+			path = TallyBars.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9140A56A2527E0D600943D0C /* Project object */;
 }

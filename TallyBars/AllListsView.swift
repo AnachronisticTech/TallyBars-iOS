@@ -6,52 +6,48 @@
 //
 
 import SwiftUI
-import FLite
-import Later
+import CoreData
 
 struct AllListsView: View {
-    @EnvironmentObject var store: FLiteStore
-    @State private var items = [TallyList]()
+    @Environment(\.managedObjectContext) private var viewContext
     @State private var showsAlert = false
+
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ListModel.id, ascending: true)]) private var lists: FetchedResults<ListModel>
 
     var body: some View {
         List {
-            ForEach(items, id: \.id) { item in
+            ForEach(lists, id: \.id) { item in
                 VStack {
                     NavigationLink(
                         item.name,
                         destination: SingleListView(list: item)
-                            .environmentObject(store)
                     )
                 }
             }
             .onDelete { indexSet in
                 indexSet.forEach { index in
-                    store.persist
-                        .delete(model: items[index])
-                        .whenSuccess { items.remove(at: index) }
+                    viewContext.delete(lists[index])
+                    try? viewContext.save()
                 }
             }
         }
         .listStyle(PlainListStyle())
         .alert(isPresented: $showsAlert, TextAlert(title: "Title") { title in
             guard let title = title, title != "" else { return }
-            store.persist
-                .add(model: TallyList(name: title))
-                .flatMap { _ in store.persist.all(model: TallyList.self) }
-                .whenSuccess { items = $0 }
+
+            let list = ListModel(context: viewContext)
+            list.name = title
+
+            try? viewContext.save()
         })
         .navigationBarTitle("Lists")
         .navigationBarTitleDisplayMode(.large)
         .navigationBarItems(
-            trailing: Button(action: {
+            trailing: Button {
                 withAnimation { self.showsAlert = true }
-            }) { Image(systemName: "plus") }
+            } label: {
+                Image(systemName: "plus")
+            }
         )
-        .onAppear {
-            store.persist
-                .all(model: TallyList.self)
-                .whenSuccess { items = $0 }
-        }
     }
 }
