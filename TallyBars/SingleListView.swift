@@ -7,99 +7,143 @@
 
 import SwiftUI
 import SwiftUICharts
+import Charts
+import CoreData
 
 struct SingleListView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @ObservedObject var list: ListModel
+    @ObservedObject private var list: ListModel
 
-    @State private var selection = 0
+    @State private var selection = ChartType.standard
     @State private var showsAlert = false
+    @State private var isAddingNewItem = false
+    @State private var newItemName = ""
 
-    private var data: ChartData {
-        return ChartData(values: list.items.map { item in
-            (item.name, item.count)
-        })
+    private var minimumCount: Int64 {
+        return switch selection {
+            case .normalized: list.items.map({ $0.count }).min() ?? 0
+            default: 0
+        }
     }
 
-    private var normalisedData: ChartData {
-        let min = list.items.map({ $0.count }).min() ?? 0
+    private var data: ChartData {
+        let min = minimumCount
         return ChartData(values: list.items.map { item in
             (item.name, item.count - min)
         })
     }
 
+    private var request: FetchRequest<ItemModel>
+    private var items: FetchedResults<ItemModel> {
+        request.wrappedValue
+    }
+
+    init(list: ListModel) {
+        self.list = list
+        request = FetchRequest<ItemModel>(
+            entity: ItemModel.entity(),
+            sortDescriptors: [NSSortDescriptor(key: "id", ascending: true)],
+            predicate: NSPredicate(format: "list.id = %ld", list.id)
+        )
+    }
+
     var body: some View {
         VStack {
             Picker(selection: $selection, label: Text("Mode")) {
-                Text("Full").tag(0)
-                Text("Normalised").tag(1)
-                Text("Pie").tag(2)
+                Text("Full").tag(ChartType.standard)
+                Text("Normalised").tag(ChartType.normalized)
+                Text("Pie").tag(ChartType.pie)
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding([.leading, .trailing, .top], 10)
-            
+
             Group {
-                if selection != 2 {
-                    UBarChartView(
-                        data: selection == 0 ? data : normalisedData,
-                        title: list.name,
-                        form: ChartForm.extraLarge,
-                        dropShadow: false,
-                        cornerImage: Image(systemName: "number"),
-                        valueSpecifier: "%.0f"
-                    )
+                if selection == .standard || selection == .normalized {
+                    Chart {
+                        ForEach(items) { item in
+                            BarMark(
+                                x: .value(list.name, item.name),
+                                y: .value("Count", item.count - minimumCount)
+                            )
+                        }
+                    }
+                } else if selection == .pie {
+                    if #available(iOS 17, *) {
+                        Chart {
+                            ForEach(items) { item in
+                                SectorMark(angle: .value(list.name, item.count))
+                            }
+                        }
+                    } else {
+                        PieChartView(
+                            data: data.onlyPoints(),
+                            title: list.name,
+                            form: ChartForm.extraLarge,
+                            dropShadow: false,
+                            valueSpecifier: "%.0f"
+                        )
+                    }
                 } else {
-                    PieChartView(
-                        data: data.onlyPoints(),
-                        title: list.name,
-                        form: ChartForm.extraLarge,
-                        dropShadow: false,
-                        valueSpecifier: "%.0f"
-                    )
+                    Text("Char type not implemented")
                 }
             }
             .padding(10)
-            
+
             List {
-                ForEach(list.items, id: \.id) { item in
+                ForEach(items, id: \.id) { item in
                     SingleItemView(item: item)
                 }
                 .onDelete { indexSet in
                     indexSet.forEach { index in
                         guard let context = list.managedObjectContext else { return }
-                        
+
                         context.delete(list.items[index])
-                        try? context.save()
+                        saveContext(context)
                     }
                 }
+
+                AddNewItemView(newItemName: $newItemName, isAddingNewItem: $isAddingNewItem, action: addNewItem)
             }
+            .listStyle(.plain)
         }
-        .alert(isPresented: $showsAlert, TextAlert(title: "Title") { title in
-            guard let context = list.managedObjectContext else { return }
-            guard let title = title, title != "" else { return }
-
-            let item = ItemModel(context: context)
-            item.name = title
-            item.list = list
-
-            try? context.save()
-        })
         .navigationBarTitle(list.name)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(
-            trailing: Button {
-                withAnimation { self.showsAlert = true }
-            } label: {
-                Image(systemName: "plus")
-            }
-        )
         .toolbar {
             ToolbarItem(placement: .principal) {
                 TextField("List Name", text: $list.name) {
-                    try? viewContext.save()
+                    guard let context = list.managedObjectContext else { return }
+                    saveContext(context)
                 }
                 .lineLimit(1)
             }
         }
+    }
+
+    private func saveContext(_ context: NSManagedObjectContext) {
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save context: \(error)")
+        }
+    }
+
+    private func addNewItem() {
+        guard let context = list.managedObjectContext else { return }
+        guard let lastId = list.items.map({ $0.id }).max() else { return }
+        guard newItemName != "" else { return }
+
+        isAddingNewItem = false
+
+        let item = ItemModel(context: context)
+        item.id = Int64(lastId + 1)
+        item.name = newItemName
+        item.list = list
+
+        saveContext(context)
+        newItemName = ""
+    }
+
+    private enum ChartType {
+        case standard, normalized, pie
     }
 }

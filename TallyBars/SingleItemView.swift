@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct SingleItemView: View {
-    @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var item: ItemModel
 
     var body: some View {
@@ -20,12 +19,24 @@ struct SingleItemView: View {
         }
         .contentShape(Rectangle())
         .onTapGesture {
+            guard let context = item.managedObjectContext else { return }
+
             item.count += 1
-            try? viewContext.save()
+            saveContext(context)
         }
         .onLongPressGesture {
+            guard let context = item.managedObjectContext else { return }
+
             item.count -= 1
-            try? viewContext.save()
+            saveContext(context)
+        }
+    }
+
+    private func saveContext(_ context: NSManagedObjectContext) {
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save context: \(error)")
         }
     }
 }

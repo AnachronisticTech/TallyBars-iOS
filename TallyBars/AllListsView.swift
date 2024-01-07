@@ -21,6 +21,7 @@ struct AllListsView: View {
                     NavigationLink(
                         item.name,
                         destination: SingleListView(list: item)
+                            .environment(\.managedObjectContext, viewContext)
                     )
                 }
             }
