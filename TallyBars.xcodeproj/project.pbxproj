@@ -14,7 +14,6 @@
 		914D51172B4AF314002A92F2 /* AddNewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D51162B4AF314002A92F2 /* AddNewItemView.swift */; };
 		91515EDF253086BE006FB2DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91515EDE253086BE006FB2DE /* Assets.xcassets */; };
 		91A807E22527FA830009E5AC /* SingleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807E12527FA830009E5AC /* SingleListView.swift */; };
-		91A807E52528A3A20009E5AC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807E42528A3A20009E5AC /* TextAlert.swift */; };
 		91C0708A2B499BD600752937 /* TallyBars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91C070882B499BD600752937 /* TallyBars.xcdatamodeld */; };
 		91C0708C2B499BE700752937 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0708B2B499BE700752937 /* PersistenceController.swift */; };
 		91C070942B49A8A100752937 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C070932B49A8A100752937 /* ItemModel.swift */; };
@@ -49,7 +48,6 @@
 		914D51162B4AF314002A92F2 /* AddNewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemView.swift; sourceTree = "<group>"; };
 		91515EDE253086BE006FB2DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91A807E12527FA830009E5AC /* SingleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListView.swift; sourceTree = "<group>"; };
-		91A807E42528A3A20009E5AC /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
 		91C070892B499BD600752937 /* TallyBars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TallyBars.xcdatamodel; sourceTree = "<group>"; };
 		91C0708B2B499BE700752937 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		91C070932B49A8A100752937 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 			children = (
 				9140A5752527E0D700943D0C /* TallyBarsApp.swift */,
 				9140A5772527E0D700943D0C /* AllListsView.swift */,
-				91A807E42528A3A20009E5AC /* TextAlert.swift */,
 				91A807E12527FA830009E5AC /* SingleListView.swift */,
 				91C070982B49FB2C00752937 /* SingleItemView.swift */,
 				914D51162B4AF314002A92F2 /* AddNewItemView.swift */,
@@ -221,7 +218,6 @@
 				91C0708C2B499BE700752937 /* PersistenceController.swift in Sources */,
 				91A807E22527FA830009E5AC /* SingleListView.swift in Sources */,
 				91C070992B49FB2C00752937 /* SingleItemView.swift in Sources */,
-				91A807E52528A3A20009E5AC /* TextAlert.swift in Sources */,
 				91C0709E2B4A0A0700752937 /* TallyItem.swift in Sources */,
 				91C0708A2B499BD600752937 /* TallyBars.xcdatamodeld in Sources */,
 				9140A5782527E0D700943D0C /* AllListsView.swift in Sources */,
