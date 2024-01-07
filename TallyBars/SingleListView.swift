@@ -21,14 +21,14 @@ struct SingleListView: View {
 
     private var minimumCount: Int64 {
         return switch selection {
-            case .normalized: list.items.map({ $0.count }).min() ?? 0
+            case .normalized: items.map({ $0.count }).min() ?? 0
             default: 0
         }
     }
 
     private var data: ChartData {
         let min = minimumCount
-        return ChartData(values: list.items.map { item in
+        return ChartData(values: items.map { item in
             (item.name, item.count - min)
         })
     }
@@ -49,13 +49,17 @@ struct SingleListView: View {
 
     var body: some View {
         VStack {
-            Picker(selection: $selection, label: Text("Mode")) {
-                Text("Full").tag(ChartType.standard)
-                Text("Normalised").tag(ChartType.normalized)
-                Text("Pie").tag(ChartType.pie)
+            if items.count > 1 {
+                Picker(selection: $selection, label: Text("Mode")) {
+                    Text("Full").tag(ChartType.standard)
+                    if items.count > 2 && Set(list.items.map({ $0.count })).count > 1 {
+                        Text("Normalised").tag(ChartType.normalized)
+                    }
+                    Text("Pie").tag(ChartType.pie)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding([.leading, .trailing, .top], 10)
             }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding([.leading, .trailing, .top], 10)
 
             Group {
                 if selection == .standard || selection == .normalized {
