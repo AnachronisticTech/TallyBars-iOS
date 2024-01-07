@@ -15,7 +15,6 @@ struct SingleListView: View {
     @ObservedObject private var list: ListModel
 
     @State private var selection = ChartType.standard
-    @State private var showsAlert = false
     @State private var isAddingNewItem = false
     @State private var newItemName = ""
 
@@ -133,7 +132,7 @@ struct SingleListView: View {
 
     private func addNewItem() {
         guard let context = list.managedObjectContext else { return }
-        guard let lastId = list.items.map({ $0.id }).max() else { return }
+        guard let lastId = list.items.isEmpty ? 0 : list.items.map({ $0.id }).max() else { return }
         guard newItemName != "" else { return }
 
         isAddingNewItem = false
