@@ -8,6 +8,7 @@
 import SwiftUI
 //import FLite
 import CoreData
+import ATSettingsUI
 
 @main
 struct TallyBarsApp: App {
@@ -16,12 +17,16 @@ struct TallyBarsApp: App {
 //    private let store = FLiteStore()
 //    @AppStorage("hasPerformedFliteMigration") private var hasMigrated: Bool = false
 
+    @StateObject private var themeManager = ThemeManager()
+
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 AllListsView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
+            .environmentObject(themeManager)
+            .tint(Color(uiColor: themeManager.auto))
 //            .onAppear {
 //                guard !hasMigrated else { return }
 //

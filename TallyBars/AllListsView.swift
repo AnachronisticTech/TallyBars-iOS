@@ -38,6 +38,13 @@ struct AllListsView: View {
         .listStyle(PlainListStyle())
         .navigationBarTitle("Lists")
         .navigationBarTitleDisplayMode(.large)
+        .toolbar {
+            NavigationLink {
+                SettingsView()
+            } label: {
+                Image(systemName: "gear")
+            }
+        }
     }
 
     private func saveContext(_ context: NSManagedObjectContext) {
@@ -60,5 +67,11 @@ struct AllListsView: View {
 
         saveContext(viewContext)
         newItemName = ""
+    }
+}
+
+#Preview {
+    NavigationView {
+        AllListsView()
     }
 }

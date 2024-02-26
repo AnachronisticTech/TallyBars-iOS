@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import ATSettingsUI
 
 struct AddNewItemView: View {
+    @EnvironmentObject private var themeManager: ThemeManager
+
     @Binding var newItemName: String
     @Binding var isAddingNewItem: Bool
     var action: () -> ()
@@ -24,14 +27,14 @@ struct AddNewItemView: View {
                     action()
                     isNewItemTextFieldFocused = isAddingNewItem
                 }
-                .foregroundStyle(Color.blue)
+                .foregroundStyle(Color(uiColor: themeManager.auto))
             }
         } else {
             Button("Add new item") {
                 isAddingNewItem = true
                 isNewItemTextFieldFocused = true
             }
-            .foregroundStyle(Color.blue)
+            .foregroundStyle(Color(uiColor: themeManager.auto))
         }
     }
 }

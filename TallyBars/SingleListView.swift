@@ -9,8 +9,10 @@ import SwiftUI
 import SwiftUICharts
 import Charts
 import CoreData
+import ATSettingsUI
 
 struct SingleListView: View {
+    @EnvironmentObject private var themeManager: ThemeManager
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject private var list: ListModel
 
@@ -68,6 +70,7 @@ struct SingleListView: View {
                                 x: .value(list.name, item.name),
                                 y: .value("Count", item.count - minimumCount)
                             )
+                            .foregroundStyle(Color(uiColor: themeManager.auto))
                         }
                     }
                 } else if selection == .pie {
@@ -75,6 +78,7 @@ struct SingleListView: View {
                         Chart {
                             ForEach(items) { item in
                                 SectorMark(angle: .value(list.name, item.count))
+                                    .foregroundStyle(Color(uiColor: themeManager.auto))
                             }
                         }
                     } else {
