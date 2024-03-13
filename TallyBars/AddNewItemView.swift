@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-import ATSettingsUI
+import ATiOS
 
 struct AddNewItemView: View {
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.themeManager) private var themeManager
 
     @Binding var newItemName: String
     @Binding var isAddingNewItem: Bool

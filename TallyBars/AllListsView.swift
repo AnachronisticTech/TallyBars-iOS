@@ -10,6 +10,7 @@ import CoreData
 
 struct AllListsView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @State private var isShowingEditAlert = false
     @State private var isAddingNewItem = false
     @State private var newItemName = ""
 
@@ -17,13 +18,31 @@ struct AllListsView: View {
 
     var body: some View {
         List {
-            ForEach(lists, id: \.id) { item in
-                VStack {
-                    NavigationLink(
-                        item.name,
-                        destination: SingleListView(list: item)
-                            .environment(\.managedObjectContext, viewContext)
-                    )
+            ForEach(lists, id: \.id) { list in
+                NavigationLink {
+                    SingleListView(list: list)
+                        .environment(\.managedObjectContext, viewContext)
+                } label: {
+                    Text(list.name)
+                }
+                .swipeActions(edge: .leading, allowsFullSwipe: false) {
+                    Button("Edit", systemImage: "pencil.circle") {
+                        isShowingEditAlert = true
+                    }
+                }
+                .alert("Edit list name", isPresented: $isShowingEditAlert) {
+                    TextField("List Name", text: $newItemName)
+                    Button("Save") {
+                        let name = newItemName.trimmingCharacters(in: .whitespacesAndNewlines)
+                        guard !name.isEmpty else { return }
+                        list.name = name
+                        saveContext(viewContext)
+                        newItemName = ""
+                    }
+
+                    Button("Cancel", role: .cancel) {
+                        isShowingEditAlert = false
+                    }
                 }
             }
             .onDelete { indexSet in
@@ -71,7 +90,11 @@ struct AllListsView: View {
 }
 
 #Preview {
-    NavigationView {
+    let list = ListModel(context: PersistenceController.preview.container.viewContext)
+    list.name = "List with some really long name no one can be bothered to remember"
+
+    return NavigationView {
         AllListsView()
     }
+    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

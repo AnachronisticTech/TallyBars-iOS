@@ -6,14 +6,12 @@
 //
 
 import SwiftUI
-import ATCommonUI
-import ATSettings
-import ATSettingsUI
+import ATCommon
+import ATiOS
 
 struct SettingsView: View {
     @Environment(\.logger) private var logger
-    @EnvironmentObject private var themeManager: ThemeManager
-    @StateObject private var appIconManager = AppIconManager(PrimaryAppIcon(), alternatives: [])
+    @Environment(\.appIconManager) private var appIconManager
 
     var body: some View {
         List {
@@ -31,20 +29,19 @@ struct SettingsView: View {
             }
 
             Section(header: Text("User Interface")) {
-                ThemeConfigurationView(themeManager: themeManager)
+                ThemeConfigurationView()
             }
 
             if appIconManager.availableIcons.count > 1 {
                 Section(header: Text("App Icon")) {
                     NavigationLink {
-                        AppIconPickerView(viewModel: appIconManager)
-                            .navigationTitle("Select Icon")
+                        AppIconPickerView()
                             .background(Color(uiColor: .secondarySystemBackground))
                     } label: {
                         HStack {
                             Text("Select app icon")
                             Spacer()
-                            AppIconView(appIcon: appIconManager.selectedIcon)
+                            CurrentAppIconView()
                         }
                     }
                 }
@@ -52,15 +49,16 @@ struct SettingsView: View {
 
             Section(header: Text("Support the developer")) {
                 NavigationLink {
-                    DonationsView(
-                        hasMadeFirstDonation: .constant(false),
-                        "com.anachronistictech.smalltip",
-                        "com.anachronistictech.mediumtip",
-                        "com.anachronistictech.largetip"
-                    )
-                    .navigationTitle("Give a tip")
+                    DonationsView()
                 } label: {
                     Text("Give a tip")
+                }
+
+                NavigationLink {
+                    CrossPromoAppsView()
+                        .background(Color(uiColor: .secondarySystemBackground))
+                } label: {
+                    Text("Other apps")
                 }
 
 //                CellButton("Share") {}
@@ -74,6 +72,13 @@ struct SettingsView: View {
 #Preview {
     NavigationView {
         SettingsView()
-            .environmentObject(ThemeManager())
+            .environment(\.appIconManager, AppIconManager(PrimaryAppIcon(), alternatives: []))
+            .environment(\.store, Store(
+                donationIds: [
+                    "com.anachronistictech.smalltip",
+                    "com.anachronistictech.mediumtip",
+                    "com.anachronistictech.largetip"
+                ]
+            ))
     }
 }

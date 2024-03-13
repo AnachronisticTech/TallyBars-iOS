@@ -8,25 +8,43 @@
 import SwiftUI
 //import FLite
 import CoreData
-import ATSettingsUI
+import ATCommon
+import ATiOS
 
 @main
 struct TallyBarsApp: App {
+//    @UIApplicationDelegateAdaptor var delegate: AppDelegate
+
     private let persistenceController = PersistenceController.shared
 
 //    private let store = FLiteStore()
 //    @AppStorage("hasPerformedFliteMigration") private var hasMigrated: Bool = false
 
+    @StateObject private var appIconManager = AppIconManager(PrimaryAppIcon(), alternatives: [], Logger.shared)
+    @StateObject private var crossPromoAppsManager = CrossPromoAppsManager(appIdentifier: Bundle.main.bundleIdentifier, showAllApps: true)
     @StateObject private var themeManager = ThemeManager()
+    @StateObject private var store = Store(
+        donationIds: [
+            "com.anachronistictech.smalltip",
+            "com.anachronistictech.mediumtip",
+            "com.anachronistictech.largetip"
+        ],
+        Logger.shared
+    )
 
     var body: some Scene {
         WindowGroup {
-            NavigationView {
+            NavigationStack {
                 AllListsView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
-            .environmentObject(themeManager)
+            .environment(\.logger, Logger.shared)
+            .environment(\.appIconManager, appIconManager)
+            .environment(\.crossPromoAppsManager, crossPromoAppsManager)
+            .environment(\.themeManager, themeManager)
+            .environment(\.store, store)
             .tint(Color(uiColor: themeManager.auto))
+            .preferredColorScheme(themeManager.scheme)
 //            .onAppear {
 //                guard !hasMigrated else { return }
 //
@@ -68,3 +86,29 @@ struct TallyBarsApp: App {
         }
     }
 }
+
+//class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
+//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+//        Utils.logger.log(.notice, message: "launched")
+//
+//        return true
+//    }
+//
+//    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+//        let sceneConfig = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+//        sceneConfig.delegateClass = SceneDelegate.self
+//        return sceneConfig
+//    }
+//}
+//
+//class SceneDelegate: NSObject, UIWindowSceneDelegate, ObservableObject {
+//    var window: UIWindow?
+//
+//    func sceneDidBecomeActive(_ scene: UIScene) {
+//        Utils.logger.log(.notice, message: "scene active")
+//    }
+//    
+//    func windowScene(_ windowScene: UIWindowScene, didUpdate previousCoordinateSpace: UICoordinateSpace, interfaceOrientation previousInterfaceOrientation: UIInterfaceOrientation, traitCollection previousTraitCollection: UITraitCollection) {
+//        Utils.logger.log(.notice, message: "traits: \(previousTraitCollection)")
+//    }
+//}

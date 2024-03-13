@@ -9,26 +9,55 @@ import SwiftUI
 import CoreData
 
 struct SingleItemView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.logger) private var logger
+
+    @State private var isShowingEditAlert = false
+    @State private var itemNewName = ""
+
     @ObservedObject var item: ItemModel
 
     var body: some View {
         HStack {
             Text(item.name)
             Spacer()
+
+            Image(systemName: "minus.circle")
+                .font(.title2)
+                .foregroundStyle(Color.accentColor)
+                .onTapGesture {
+                    item.count -= 1
+                    saveContext(viewContext)
+                }
+
             Text("\(item.count)")
-        }
-        .contentShape(Rectangle())
-        .onTapGesture {
-            guard let context = item.managedObjectContext else { return }
+                .padding([.leading, .trailing])
 
-            item.count += 1
-            saveContext(context)
+            Image(systemName: "plus.circle")
+                .font(.title2)
+                .foregroundStyle(Color.accentColor)
+                .onTapGesture {
+                    item.count += 1
+                    saveContext(viewContext)
+                }
         }
-        .onLongPressGesture {
-            guard let context = item.managedObjectContext else { return }
+        .swipeActions(edge: .leading, allowsFullSwipe: false) {
+            Button("Edit", systemImage: "pencil.circle") {
+                isShowingEditAlert = true
+            }
+        }
+        .alert("Edit item name", isPresented: $isShowingEditAlert) {
+            TextField("Item Name", text: $itemNewName)
+            Button("Save") {
+                let name = itemNewName.trimmingCharacters(in: .whitespacesAndNewlines)
+                guard !name.isEmpty else { return }
+                item.name = name
+                saveContext(viewContext)
+            }
 
-            item.count -= 1
-            saveContext(context)
+            Button("Cancel", role: .cancel) {
+                isShowingEditAlert = false
+            }
         }
     }
 
@@ -36,7 +65,18 @@ struct SingleItemView: View {
         do {
             try context.save()
         } catch {
-            print("Failed to save context: \(error)")
+            logger.log(.error, message: "Failed to save context: \(error)")
         }
     }
+}
+
+#Preview {
+    let item = ItemModel(context: PersistenceController.preview.container.viewContext)
+    item.name = "Test item with a really long title because people dislike non-descriptive variable names"
+
+    return List {
+        SingleItemView(item: item)
+    }
+    .listStyle(.plain)
+    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

@@ -50,7 +50,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
-         identifier = "../../../Swan Song/ATCommon/Sources/ATSettingsUI/Resources/TestPurchases.storekit">
+         identifier = "../../../AnachronisticTech/ATCommon/Sources/ATCommon/Resources/TestPurchases.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction

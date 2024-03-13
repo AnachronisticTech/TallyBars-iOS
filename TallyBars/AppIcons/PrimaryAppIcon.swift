@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ATSettings
+import ATiOS
 
 struct PrimaryAppIcon: DefaultAppIcon {
     let id: String = "Primary"

@@ -9,10 +9,10 @@ import SwiftUI
 import SwiftUICharts
 import Charts
 import CoreData
-import ATSettingsUI
+import ATiOS
 
 struct SingleListView: View {
-    @EnvironmentObject private var themeManager: ThemeManager
+    @Environment(\.themeManager) private var themeManager: ThemeManager
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject private var list: ListModel
 
@@ -56,6 +56,7 @@ struct SingleListView: View {
                     if items.count > 2 && Set(list.items.map({ $0.count })).count > 1 {
                         Text("Normalised").tag(ChartType.normalized)
                     }
+
                     Text("Pie").tag(ChartType.pie)
                 }
                 .pickerStyle(SegmentedPickerStyle())
@@ -64,22 +65,22 @@ struct SingleListView: View {
 
             Group {
                 if selection == .standard || selection == .normalized {
-                    Chart {
-                        ForEach(items) { item in
-                            BarMark(
-                                x: .value(list.name, item.name),
-                                y: .value("Count", item.count - minimumCount)
-                            )
-                            .foregroundStyle(Color(uiColor: themeManager.auto))
-                        }
+                    Chart(items) { item in
+                        BarMark(
+                            x: .value(list.name, item.name),
+                            y: .value("Count", item.count - minimumCount)
+                        )
+                        .foregroundStyle(Color(uiColor: themeManager.auto))
                     }
                 } else if selection == .pie {
                     if #available(iOS 17, *) {
-                        Chart {
-                            ForEach(items) { item in
-                                SectorMark(angle: .value(list.name, item.count))
-                                    .foregroundStyle(Color(uiColor: themeManager.auto))
-                            }
+                        Chart(items) { item in
+                            SectorMark(
+                                angle: .value(list.name, item.count),
+                                innerRadius: .ratio(0.6),
+                                angularInset: 4
+                            )
+                            .foregroundStyle(Color(uiColor: themeManager.auto))
                         }
                     } else {
                         PieChartView(
@@ -91,7 +92,7 @@ struct SingleListView: View {
                         )
                     }
                 } else {
-                    Text("Char type not implemented")
+                    Text("Chart type not implemented")
                 }
             }
             .padding(10)
@@ -153,4 +154,22 @@ struct SingleListView: View {
     private enum ChartType {
         case standard, normalized, pie
     }
+}
+
+#Preview {
+    let list = ListModel(context: PersistenceController.preview.container.viewContext)
+    list.name = "My List"
+
+    for i in 1 ... 10 {
+        let item = ItemModel(context: PersistenceController.preview.container.viewContext)
+        item.id = Int64(i)
+        item.name = "Some item \(i)"
+        item.count = Int64.random(in: -10...10)
+        item.list = list
+    }
+
+    return NavigationView {
+        SingleListView(list: list)
+    }
+    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

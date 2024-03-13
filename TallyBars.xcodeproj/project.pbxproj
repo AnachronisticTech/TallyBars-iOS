@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9112F8D62B8A73ED008DA6CA /* ATCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 9112F8D52B8A73ED008DA6CA /* ATCommon */; };
-		9112F8D92B8A73F8008DA6CA /* ATCommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9112F8D82B8A73F8008DA6CA /* ATCommonUI */; };
-		9112F8DB2B8A73F8008DA6CA /* ATSettings in Frameworks */ = {isa = PBXBuildFile; productRef = 9112F8DA2B8A73F8008DA6CA /* ATSettings */; };
-		9112F8DD2B8A73F8008DA6CA /* ATSettingsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9112F8DC2B8A73F8008DA6CA /* ATSettingsUI */; };
 		9140A5762527E0D700943D0C /* TallyBarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140A5752527E0D700943D0C /* TallyBarsApp.swift */; };
 		9140A5782527E0D700943D0C /* AllListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140A5772527E0D700943D0C /* AllListsView.swift */; };
 		9140A57D2527E0DB00943D0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9140A57C2527E0DB00943D0C /* Preview Assets.xcassets */; };
 		9145AD30252FD8480021DBF4 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 9145AD2F252FD8480021DBF4 /* SwiftUICharts */; };
 		914D51172B4AF314002A92F2 /* AddNewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D51162B4AF314002A92F2 /* AddNewItemView.swift */; };
 		91515EDF253086BE006FB2DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91515EDE253086BE006FB2DE /* Assets.xcassets */; };
+		9153055D2BA1F818004E58DD /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153055C2BA1F818004E58DD /* Logger.swift */; };
+		9162205F2B9E6B1A003B7393 /* ATCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 9162205E2B9E6B1A003B7393 /* ATCommon */; };
+		916220612B9E6B1A003B7393 /* ATiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 916220602B9E6B1A003B7393 /* ATiOS */; };
 		91740D6D2B89FE0F009939BF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91740D6C2B89FE0F009939BF /* SettingsView.swift */; };
 		91A807E22527FA830009E5AC /* SingleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A807E12527FA830009E5AC /* SingleListView.swift */; };
+		91BD9A9C2B9CD3670043DCE2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91BD9A9B2B9CD3670043DCE2 /* StoreKit.framework */; };
 		91C0708A2B499BD600752937 /* TallyBars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91C070882B499BD600752937 /* TallyBars.xcdatamodeld */; };
 		91C0708C2B499BE700752937 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0708B2B499BE700752937 /* PersistenceController.swift */; };
 		91C070942B49A8A100752937 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C070932B49A8A100752937 /* ItemModel.swift */; };
@@ -53,8 +53,10 @@
 		9140A57E2527E0DB00943D0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		914D51162B4AF314002A92F2 /* AddNewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemView.swift; sourceTree = "<group>"; };
 		91515EDE253086BE006FB2DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9153055C2BA1F818004E58DD /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		91740D6C2B89FE0F009939BF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		91A807E12527FA830009E5AC /* SingleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListView.swift; sourceTree = "<group>"; };
+		91BD9A9B2B9CD3670043DCE2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		91C070892B499BD600752937 /* TallyBars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TallyBars.xcdatamodel; sourceTree = "<group>"; };
 		91C0708B2B499BE700752937 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		91C070932B49A8A100752937 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
@@ -72,12 +74,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9112F8D62B8A73ED008DA6CA /* ATCommon in Frameworks */,
+				91BD9A9C2B9CD3670043DCE2 /* StoreKit.framework in Frameworks */,
 				9145AD30252FD8480021DBF4 /* SwiftUICharts in Frameworks */,
-				9112F8DB2B8A73F8008DA6CA /* ATSettings in Frameworks */,
-				9112F8D92B8A73F8008DA6CA /* ATCommonUI in Frameworks */,
-				9112F8DD2B8A73F8008DA6CA /* ATSettingsUI in Frameworks */,
+				9162205F2B9E6B1A003B7393 /* ATCommon in Frameworks */,
 				91C0709C2B4A09A500752937 /* FLite in Frameworks */,
+				916220612B9E6B1A003B7393 /* ATiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +88,7 @@
 		9112F8D72B8A73F8008DA6CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91BD9A9B2B9CD3670043DCE2 /* StoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,6 +119,7 @@
 				91C070982B49FB2C00752937 /* SingleItemView.swift */,
 				914D51162B4AF314002A92F2 /* AddNewItemView.swift */,
 				91740D6C2B89FE0F009939BF /* SettingsView.swift */,
+				9153055C2BA1F818004E58DD /* Logger.swift */,
 				91EFDBB42B8CEC6B00034F64 /* AppIcons */,
 				91C070972B49A8B400752937 /* Models */,
 				91C070A12B4A176C00752937 /* FLite */,
@@ -185,10 +188,8 @@
 			packageProductDependencies = (
 				9145AD2F252FD8480021DBF4 /* SwiftUICharts */,
 				91C0709B2B4A09A500752937 /* FLite */,
-				9112F8D52B8A73ED008DA6CA /* ATCommon */,
-				9112F8D82B8A73F8008DA6CA /* ATCommonUI */,
-				9112F8DA2B8A73F8008DA6CA /* ATSettings */,
-				9112F8DC2B8A73F8008DA6CA /* ATSettingsUI */,
+				9162205E2B9E6B1A003B7393 /* ATCommon */,
+				916220602B9E6B1A003B7393 /* ATiOS */,
 			);
 			productName = TallyBars;
 			productReference = 9140A5722527E0D700943D0C /* TallyBars.app */;
@@ -221,7 +222,7 @@
 			packageReferences = (
 				9145AD2E252FD8480021DBF4 /* XCRemoteSwiftPackageReference "ChartView" */,
 				91C0709A2B4A09A500752937 /* XCRemoteSwiftPackageReference "FLite" */,
-				9112F8D42B8A73ED008DA6CA /* XCLocalSwiftPackageReference "../Swan Song/ATCommon" */,
+				9162205D2B9E6B1A003B7393 /* XCLocalSwiftPackageReference "../AnachronisticTech/ATCommon" */,
 			);
 			productRefGroup = 9140A5732527E0D700943D0C /* Products */;
 			projectDirPath = "";
@@ -256,6 +257,7 @@
 				91C070992B49FB2C00752937 /* SingleItemView.swift in Sources */,
 				91C0709E2B4A0A0700752937 /* TallyItem.swift in Sources */,
 				91C0708A2B499BD600752937 /* TallyBars.xcdatamodeld in Sources */,
+				9153055D2BA1F818004E58DD /* Logger.swift in Sources */,
 				9140A5782527E0D700943D0C /* AllListsView.swift in Sources */,
 				91740D6D2B89FE0F009939BF /* SettingsView.swift in Sources */,
 				91C070A32B4A178900752937 /* FLiteStore.swift in Sources */,
@@ -458,9 +460,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		9112F8D42B8A73ED008DA6CA /* XCLocalSwiftPackageReference "../Swan Song/ATCommon" */ = {
+		9162205D2B9E6B1A003B7393 /* XCLocalSwiftPackageReference "../AnachronisticTech/ATCommon" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../Swan Song/ATCommon";
+			relativePath = ../AnachronisticTech/ATCommon;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -484,29 +486,18 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9112F8D52B8A73ED008DA6CA /* ATCommon */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ATCommon;
-		};
-		9112F8D82B8A73F8008DA6CA /* ATCommonUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9112F8D42B8A73ED008DA6CA /* XCLocalSwiftPackageReference "../Swan Song/ATCommon" */;
-			productName = ATCommonUI;
-		};
-		9112F8DA2B8A73F8008DA6CA /* ATSettings */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9112F8D42B8A73ED008DA6CA /* XCLocalSwiftPackageReference "../Swan Song/ATCommon" */;
-			productName = ATSettings;
-		};
-		9112F8DC2B8A73F8008DA6CA /* ATSettingsUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9112F8D42B8A73ED008DA6CA /* XCLocalSwiftPackageReference "../Swan Song/ATCommon" */;
-			productName = ATSettingsUI;
-		};
 		9145AD2F252FD8480021DBF4 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9145AD2E252FD8480021DBF4 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		9162205E2B9E6B1A003B7393 /* ATCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ATCommon;
+		};
+		916220602B9E6B1A003B7393 /* ATiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ATiOS;
 		};
 		91C0709B2B4A09A500752937 /* FLite */ = {
 			isa = XCSwiftPackageProductDependency;
