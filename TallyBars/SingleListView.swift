@@ -70,7 +70,7 @@ struct SingleListView: View {
                             x: .value(list.name, item.name),
                             y: .value("Count", item.count - minimumCount)
                         )
-                        .foregroundStyle(Color(uiColor: themeManager.auto))
+                        .foregroundStyle(themeManager.accentColor)
                     }
                 } else if selection == .pie {
                     if #available(iOS 17, *) {
@@ -80,7 +80,7 @@ struct SingleListView: View {
                                 innerRadius: .ratio(0.6),
                                 angularInset: 4
                             )
-                            .foregroundStyle(Color(uiColor: themeManager.auto))
+                            .foregroundStyle(themeManager.accentColor)
                         }
                     } else {
                         PieChartView(

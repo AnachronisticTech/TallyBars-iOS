@@ -27,14 +27,14 @@ struct AddNewItemView: View {
                     action()
                     isNewItemTextFieldFocused = isAddingNewItem
                 }
-                .foregroundStyle(Color(uiColor: themeManager.auto))
+                .foregroundStyle(themeManager.accentColor)
             }
         } else {
             Button("Add new item") {
                 isAddingNewItem = true
                 isNewItemTextFieldFocused = true
             }
-            .foregroundStyle(Color(uiColor: themeManager.auto))
+            .foregroundStyle(themeManager.accentColor)
         }
     }
 }

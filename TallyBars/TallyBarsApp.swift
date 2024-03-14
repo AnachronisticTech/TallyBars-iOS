@@ -43,7 +43,7 @@ struct TallyBarsApp: App {
             .environment(\.crossPromoAppsManager, crossPromoAppsManager)
             .environment(\.themeManager, themeManager)
             .environment(\.store, store)
-            .tint(Color(uiColor: themeManager.auto))
+            .tint(themeManager.accentColor)
             .preferredColorScheme(themeManager.scheme)
 //            .onAppear {
 //                guard !hasMigrated else { return }
