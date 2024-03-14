@@ -13,8 +13,6 @@ import ATiOS
 
 @main
 struct TallyBarsApp: App {
-//    @UIApplicationDelegateAdaptor var delegate: AppDelegate
-
     private let persistenceController = PersistenceController.shared
 
 //    private let store = FLiteStore()
@@ -86,29 +84,3 @@ struct TallyBarsApp: App {
         }
     }
 }
-
-//class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-//        Utils.logger.log(.notice, message: "launched")
-//
-//        return true
-//    }
-//
-//    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-//        let sceneConfig = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
-//        sceneConfig.delegateClass = SceneDelegate.self
-//        return sceneConfig
-//    }
-//}
-//
-//class SceneDelegate: NSObject, UIWindowSceneDelegate, ObservableObject {
-//    var window: UIWindow?
-//
-//    func sceneDidBecomeActive(_ scene: UIScene) {
-//        Utils.logger.log(.notice, message: "scene active")
-//    }
-//    
-//    func windowScene(_ windowScene: UIWindowScene, didUpdate previousCoordinateSpace: UICoordinateSpace, interfaceOrientation previousInterfaceOrientation: UIInterfaceOrientation, traitCollection previousTraitCollection: UITraitCollection) {
-//        Utils.logger.log(.notice, message: "traits: \(previousTraitCollection)")
-//    }
-//}
